@@ -1,0 +1,11 @@
+web:
+  build: .
+  container_name: web_container
+  ports:
+    - "8080:8080"
+  command: java -jar mvc-app.jar
+  links:
+    - db
+db:
+  container_name: mongo_container
+  image: mongo

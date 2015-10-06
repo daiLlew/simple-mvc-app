@@ -1,0 +1,65 @@
+.main {
+    background: #63ace5;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.form-main {
+    width: 25%;
+    background: #63ace5;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.form-left {
+    float: left;
+    width: 35%;
+    padding-bottom: 5px;
+}
+
+.form-right {
+    float: left;
+    width: 65%;
+    padding-bottom: 5px;
+}
+
+label {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    display: block;
+}
+
+.nav-item {
+    display: inline;
+    padding-right: 10px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+input[type="text"] {
+    background-color : #e7eff6;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+table {
+    width: 80%;
+}
+
+th, td {
+    width: 20%;
+}

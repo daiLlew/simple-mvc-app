@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Simple MVC Example</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" href="../../css/style.css" type="text/css"/>
+    </head>
+    <body>
+        <div th:replace="fragments/navigation :: navigation"></div>
+            <h1 th:text="'Simple MVC Example'" />
+            <div class="main">
+                <h2>About:</h2>
+                <p th:text="'This is a simple demo web application written using Spring Boot MVC and JPA allowing you to
+                 register a new user and view existing users. Users are retrieved and stored in a mongo Database.
+                  Both the web application and the database are deployed in their own Docker containers and take
+                  advantage of Dockers container linking features allowing them to interact - making this a fully
+                  containerised web application.'" />
+                <p th:text="'I plan to expand this demo as I learn more about the new features of Spring Boot - stayed tuned'"/>
+            </div>
+    </body>
+</html>

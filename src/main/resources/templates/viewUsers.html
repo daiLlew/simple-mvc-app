@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Simple MVC Example</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" href="../../css/style.css" type="text/css"/>
+    </head>
+    <body>
+    <div th:replace="fragments/navigation :: navigation"></div>
+    <h1>Existing Users:</h1>
+    <div class="main" th:if="!${#lists.isEmpty(users)}">
+        <table>
+            <tr>
+                <th align="left">ID</th>
+                <th align="left">First Name</th>
+                <th align="left">Last Names</th>
+                <th align="left">Email</th>
+            </tr>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.firstName}"></td>
+                <td th:text="${user.lastName}">yes</td>
+                <td th:text="${user.emailAddress}">yes</td>
+            </tr>
+        </table>
+    </div>
+    <div class="main" th:if="${#lists.isEmpty(users)}">
+        <p th:text="'There are currently no users registered.'"/>
+    </div>
+    </body>
+</html>
