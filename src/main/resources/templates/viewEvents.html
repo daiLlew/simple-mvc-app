@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>View up coming events</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" href="../../css/style.css" type="text/css"/>
+    </head>
+    <body>
+    <div th:replace="fragments/navigation :: navigation"></div>
+    <h1>Up coming events:</h1>
+    <div class="main" style="width: 50%" th:if="!${#lists.isEmpty(events)}">
+        <table>
+            <tr>
+                <th align="left">Band</th>
+                <th align="left">Venue</th>
+                <th align="left">City</th>
+                <th align="left">Date</th>
+            </tr>
+            <tr th:each="event : ${events}">
+                <td th:text="${event.band}"></td>
+                <td th:text="${event.venue}"></td>
+                <td th:text="${event.city}"></td>
+                <td th:text="${event.date}"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="main" style="width: 50%" th:if="${#lists.isEmpty(events)}">
+        <p th:text="'There are currently no events registered.'"/>
+    </div>
+    <a th:href="@{/event}">Register an event</a>
+    </body>
+</html>

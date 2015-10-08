@@ -7,15 +7,16 @@
     </head>
     <body>
         <div th:replace="fragments/navigation :: navigation"></div>
-            <h1 th:text="'Simple MVC Example'" />
+            <h1 th:text="'Welcome to GigTracker'" />
             <div class="main">
                 <h2>About:</h2>
-                <p th:text="'This is a simple demo web application written using Spring Boot MVC and JPA allowing you to
-                 register a new user and view existing users. Users are retrieved and stored in a mongo Database.
-                  Both the web application and the database are deployed in their own Docker containers and take
-                  advantage of Dockers container linking features allowing them to interact - making this a fully
-                  containerised web application.'" />
-                <p th:text="'I plan to expand this demo as I learn more about the new features of Spring Boot - stayed tuned'"/>
+                <p th:text="'This is a simple demo web application allowing you to register new music events and view up
+                 coming events. This application is built with Spring Boot MVC / JPA and make use of the embedded Tomcat
+                  Spring Boot includes in the executable jar file and is connected to a Mysql Database. This application
+                   runs inside Docker containers - the MVC application and the database are deployed and run in separate
+                  container and take advantage of Dockers container linking features to allow them to communicate -
+                  making this a fully containerised application.'" />
+                <p th:text="'I will be expand the functionality / complexity of this app so stayed tuned'"/>
             </div>
     </body>
 </html>

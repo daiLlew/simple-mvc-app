@@ -7,5 +7,10 @@ web:
   links:
     - db
 db:
-  container_name: mongo_container
-  image: mongo
+  container_name: mysql_container
+  image: mysql
+  environment:
+    - MYSQL_DATABASE=events_demo
+    - MYSQL_ROOT_PASSWORD=my-secret-pw
+  ports:
+    - "3306:3306"

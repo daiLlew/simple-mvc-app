@@ -56,6 +56,10 @@ input[type="text"] {
     border-radius: 5px;
 }
 
+.events-list {
+    width: 50%;
+}
+
 table {
     width: 80%;
 }

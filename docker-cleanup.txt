@@ -1,0 +1,9 @@
+docker rm -f web_container
+
+docker rm -f mysql_container
+
+docker rmi simplemvcapp_web
+
+docker rmi web
+
+docker logs -f web_container

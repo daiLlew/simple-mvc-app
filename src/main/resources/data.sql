@@ -1,0 +1,1 @@
+INSERT INTO event (id, band, city, date, venue) VALUES (5, 'Overkill', 'Swansea', '12/03/16', 'The Vault');
