@@ -1,9 +1,8 @@
 package com.example.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by daiLlew on 07/10/2015.
@@ -12,18 +11,23 @@ import javax.persistence.Id;
 public class Event {
 
 	@Id
+	@Column(name = "event_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	private String band;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "EVENT_BANDS",
+			joinColumns = { @JoinColumn(name = "event_id") },
+			inverseJoinColumns = @JoinColumn(name = "band_id"))
+	private Set<Band> bands = new HashSet<>();
 	private String venue;
 	private String city;
 	private String date;
 
 	public Event() {}
 
-	public Event(String band, String venue, String city, String date) {
-		this.band = band;
+	public Event(Set<Band> bands, String venue, String city, String date) {
+		this.bands = bands;
 		this.venue = venue;
 		this.city = city;
 		this.date = date;
@@ -37,12 +41,12 @@ public class Event {
 		this.id = id;
 	}
 
-	public String getBand() {
-		return band;
+	public Set<Band> getBands() {
+		return bands;
 	}
 
-	public void setBand(String band) {
-		this.band = band;
+	public void setBands(Set<Band> bands) {
+		this.bands = bands;
 	}
 
 	public String getVenue() {
@@ -73,7 +77,7 @@ public class Event {
 	public String toString() {
 		return "Event{" +
 				"id=" + id +
-				", band='" + band + '\'' +
+				", bands='" + bands + '\'' +
 				", venue='" + venue + '\'' +
 				", city='" + city + '\'' +
 				", date=" + date +

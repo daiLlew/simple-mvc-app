@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <div th:fragment="search">
+        <div>
+            <form id="search-form" class="form-main" action="#" th:action="@{events/search}" th:object="${searchForm}" method="post">
+                <input id="search-text" class="search-box-style" th:field="*{searchValue}" type="text" size="30" />
+                <select id="search-type"  th:field="*{searchType}">
+                    <option th:each="searchType : ${searchForm.searchTypes}" th:value="${searchType.name}" th:text="${searchType.type}"></option>
+                </select>
+                <input  id="search-button" value="Search" type="submit"/>
+            </form>
+        </div>
+    </div>
+</html>

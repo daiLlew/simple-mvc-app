@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register Event</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../../css/style.css" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/register-event.css}" href="../../css/register-event.css" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+            $(document).ready(function() {
+                $('#new-band-form').hide();
+                $('#registerNewBand').change(function(){
+                    if(this.checked) {
+                        $('#new-band-form').fadeIn('slow');
+                        $('#select-band').prop('disabled', true);
+                    } else {
+                        $('#new-band-form').fadeOut('slow');
+                         $('#select-band').prop('disabled', false);
+                    }
+                });
+            });
+        </script>
+</head>
+<body>
+<div th:replace="navigation :: navigation"></div>
+
+<h1>Register new event:</h1>
+<div>
+    <form class="form-main" action="#" th:action="@{/submitEvent}" th:object="${form}" method="post">
+        <fieldset>
+            <span>
+                <label>Select Band:</label>
+                <select id="select-band" th:field="*{bandName}">
+                    <option th:each="band : ${artists}" th:value="${band.name}" th:text="${band.name}"></option>
+                </select>
+            </span>
+            <div><label>Register new Band?</label><input id="registerNewBand" type="checkbox" th:field="*{registerNewBand}" /></div>
+
+            <span th:replace="register/newBand :: new-band-form"></span>
+
+            <div class="input-spacer"><label>Venue:</label><input type="text" th:field="*{venue}" size="30" /></div>
+            <div class="input-spacer"><label>City:</label><input type="text" th:field="*{city}" size="30" /></div>
+            <div class="input-spacer"><label>Date:</label><input type="text" th:field="*{date}" size="30" /></div>
+
+            <div>
+                <input value="Submit" type="submit"/>
+                <input value="Reset" type="reset"/>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>
